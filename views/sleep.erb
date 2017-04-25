@@ -1,0 +1,5 @@
+<h1>Hello! <%= @name %>'s sleep level is <%= @sleep_level %>. Push the button below to let your pet have a nap!</h1>
+<form action="/rest_pet" method="post">
+  <button type="submit" name="rest_pet">Nap</button>
+</form>
+<a href="/pet_home">Pet Home</a>

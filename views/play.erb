@@ -1,0 +1,5 @@
+<h1>Hello! <%= @name %>'s activity level is <%= @activity_level %>. Don't let <%= @name %> get too bored! Push the button below to play with your pet!</h1>
+<form action="/play_with" method="post">
+  <button type="submit" name="play_pet">Play</button>
+</form>
+<a href="/pet_home">Pet Home</a>
