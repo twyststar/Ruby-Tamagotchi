@@ -1,5 +1,18 @@
 <h1>Hello! <%= @name %>'s sleep level is <%= @sleep_level %>. Push the button below to let your pet have a nap!</h1>
-<form action="/rest_pet" method="post">
-  <button type="submit" name="rest_pet">Nap</button>
-</form>
+<% if  @sleep_level <= 0 %>
+  <h3>YOUR PET IS OUT COLD...YOU SHOULD HAVE LET IT REST.</h3>
+<% elsif  @food_level <= 0 %>
+  <h3>Your pet can't play when it's starved. You should have fed it you monster.</h3>
+<% elsif  @activity_level <= 0 %>
+  <h3>Your pet is sad. Too sad to even sleep. You should have played with it more.</h3>
+<% else %>
+  <form action="/rest_pet" method="post">
+    <button type="submit" name="rest_pet">Sleep</button>
+  </form>
+    <% if  @activity_level < 8 %>
+      <h3>Your pet is getting bored and sad..try playing with it.</h3>
+    <% elsif  @food_level < 8 %>
+      <h3>Your pet is getting hungry. Maybe you should feed it?</h3>
+    <% end %>
+<% end %>
 <a href="/pet_home">Pet Home</a>

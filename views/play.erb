@@ -1,5 +1,19 @@
 <h1>Hello! <%= @name %>'s activity level is <%= @activity_level %>. Don't let <%= @name %> get too bored! Push the button below to play with your pet!</h1>
-<form action="/play_with" method="post">
-  <button type="submit" name="play_pet">Play</button>
-</form>
+
+<% if  @activity_level <= 0 %>
+  <h3>YOUR PET GOT TOO SAD. TOO LATE TO PLAY WITH IT NOW.</h3>
+<% elsif  @sleep_level <= 0 %>
+  <h3>Your pet can't play when it's out cold. You should have let it rest......</h3>
+<% elsif  @food_level <= 0 %>
+  <h3>Your pet is too hungry to play. Maybe you should have fed it?</h3>
+<% else %>
+  <form action="/play_with" method="post">
+    <button type="submit" name="play_pet">Play</button>
+  </form>
+    <% if  @sleep_level < 8 %>
+      <h3>Your pet is getting sleepy..try resting it.</h3>
+    <% elsif  @food_level < 8 %>
+      <h3>Your pet is getting hungry. Maybe you should feed it?</h3>
+    <% end %>
+<% end %>
 <a href="/pet_home">Pet Home</a>

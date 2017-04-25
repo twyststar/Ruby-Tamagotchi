@@ -46,17 +46,17 @@ class Tamagotchi
      @activity_level > 0
   end
   def feed_pet
-    @food_level+= 4
+    @food_level+= 6
     @sleep_level -= 2
     self.time_passes()
   end
   def play_pet
-    @activity_level += 4
+    @activity_level += 6
     @food_level -= 2
     self.time_passes()
   end
   def rest_pet
-    @sleep_level += 4
+    @sleep_level += 6
     @activity_level -= 2
     self.time_passes()
   end
