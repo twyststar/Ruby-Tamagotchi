@@ -1,18 +1,24 @@
 <h1>Hello! <%= @name %>'s food level is <%= @food_level %>. Push the button below to feed your pet!</h1>
 <% if  @food_level <= 0 %>
   <h3>YOUR PET HAS STARVED. THE FOOD WON'T HELP.</h3>
+  <img src="death.gif" alt="" />
 <% elsif  @sleep_level <= 0 %>
   <h3>Your pet can't eat when it's out cold. You should have let it rest......</h3>
+  <img src="death.gif" alt="" />
 <% elsif  @activity_level <= 0 %>
   <h3>Your pet is too sad to eat. Maybe you should have played with it?</h3>
+  <img src="death.gif" alt="" />
 <% else %>
+  <img src="eating.gif" alt="" />
   <form action="/feed" method="post">
     <button type="submit" name="feed_pet">Feed</button>
   </form>
     <% if  @sleep_level < 8 %>
       <h3>Your pet is getting sleepy..try resting it.</h3>
+      <img src="sad.gif" alt="" />
     <% elsif  @activity_level < 8 %>
       <h3>Your pet is getting bored. Maybe you should play with it?</h3>
+      <img src="sad.gif" alt="" />
     <% end %>
 <% end %>
 <a href="/pet_home">Pet Home</a>

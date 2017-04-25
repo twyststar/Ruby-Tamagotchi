@@ -9,3 +9,7 @@
   <a href="/sleep"><button type="button" name="food">Rest</button></a>
   <a href="/play"><button type="button" name="food">Play</button></a>
 </div>
+<% if @food_level <= 0 || @sleep_level <= 0 || @activity_level <=0 %>
+<img src="death.gif" alt="" />
+<p>Kill your pet?? <a href="/">Get a new pet.</a> Please be more careful this time.</p>
+<% end %>
